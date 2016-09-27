@@ -1,0 +1,388 @@
+/*
+mailchimp inliner tool for emails 
+- write styles in the head then use the tool to convert to inline
+
+http://templates.mailchimp.com/resources/inline-css/
+*/
+
+<style type="text/css">
+
+/* //// add any font ////////*/
+	  @import 'https://fonts.googleapis.com/css?family=Arima+Madurai:200|Josefin+Slab';
+
+/*////// RESET STYLES //////*/
+			body, #bodyTable, #bodyCell {
+        height:100% !important;
+        margin:0;
+        padding:0;
+        width:100% !important;
+      }
+			table{
+        border-collapse:collapse;
+      }
+			img, a img{
+        border:0;
+        outline:none;
+        text-decoration:none;
+      }
+			h1, h2, h3, h4, h5, h6{
+        margin:0;
+        padding:0;
+      }
+			p{
+        margin: 1em 0;
+      }
+
+/*////// CLIENT-SPECIFIC STYLES //////*/
+			.ReadMsgBody{
+        width:100%;
+        }
+      .ExternalClass{
+        width:100%;
+        }
+         /* Force Hotmail/Outlook.com to display emails at full width. */
+			.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div{
+        line-height:100%;
+        }
+        /* Force Hotmail/Outlook.com to display line heights normally. */
+			table, td{
+        mso-table-lspace:0pt;
+        mso-table-rspace:0pt;
+        }
+        /* Remove spacing between tables in Outlook 2007 and up. */
+			#outlook a{
+        padding:0;
+        }
+        /* Force Outlook 2007 and up to provide a "view in browser" message. */
+			img{
+        -ms-interpolation-mode:
+        bicubic;
+        }
+        /* Force IE to smoothly render resized images. */
+			body, table, td, p, a, li, blockquote{
+        -ms-text-size-adjust:100%;
+        -webkit-text-size-adjust:100%;
+        }
+        /* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
+
+/*  General Styles  */
+			h1, h2, h3 {
+				font-family:'Helvetica Neue', helvetica, Arial, sans-serif;
+			}
+			h1, h1 a{
+				color: #D83826;
+				font-size: 44px;
+				font-weight: 100;
+				line-height: 115%;
+				text-align:left;
+			}
+			h2, h2 a{
+				color: #606060;
+				font-size: 34px;
+				font-weight: 100;
+				line-height: 100%;
+				text-align:left;
+			}
+			h3, h3 a{
+				color: #D83826; /*  red  */
+				font-size: 30px;
+				font-weight: 100;
+				line-height: 115%;
+				text-align:left;
+			}
+			body, #bodyTable{
+				background-color: #424145;
+			}
+			#emailContainer{
+				width:100%;
+			}
+
+			#heroContainer{
+				background-color: #f0f0f0;
+			}
+
+/* ============== intro =================*/
+            #introContainer{
+              background-color: #f0f0f0;
+              padding: 40px;
+            }
+              #introBlock{
+                background-color: #f0f0f0;
+              }
+                .introHeading{
+                  color: #808080;
+                  font-size: 14px;
+                  font-weight: bold;
+                  line-height: 150%;
+                  padding-left: 40px;
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+                }
+                .introContent{
+                  color: #606060;
+                  font-size: 18px;
+                  line-height: 150%;
+                  padding-left: 40px;
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+                }
+
+/* ============== cta  =================*/
+            #ctaContainer{
+              background-color: #d83826; /*  red  */
+              padding: 40px;
+            }
+
+              #ctaBlock{
+                background-color: #D83826; /*  red  */
+              }
+
+                .ctaHeading{
+                  color: #d83826; /*  red  */
+                  font-size: 14px;
+                  font-weight: bold;
+                  line-height: 150%;
+                  padding-left: 40px;
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+                }
+                .ctaContent h3{
+                  color: #ffffff;
+                  font-size: 30px;
+                  font-weight: 100;
+                  line-height: 115%;
+                  text-align: center;
+                }
+
+                .ctaContent{
+                  color: #ffffff;
+                  text-align: center;
+                  font-size: 16px;
+                  line-height: 150%;
+                  padding-bottom: 40px;
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+                }
+                .ctaButton{
+                  background-color: #f0f0f0;
+                  border-radius: 4px;
+                  box-shadow: 0 5px 0 #a22a1c;
+                }
+                .ctaButtonContent{
+                  padding-top:20px;
+                  padding-right: 40px;
+                  padding-bottom: 20px;
+                  padding-left: 40px;
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+
+                }
+                .ctaButtonContent, .ctaButtonContent a{
+                  color: #d83826; /*  red  */
+                  display: block;
+                  font-size: 24px;
+                  font-weight: thin;
+                  line-height: 100%;
+                  letter-spacing: -1px;
+                  text-align: center;
+                  text-decoration: none;
+
+                }
+
+/* ============== event =================*/
+            #eventContainer{
+              background-color: #f0f0f0;
+              padding: 40px;
+            }
+              #eventBlock{
+                background-color: #f0f0f0;
+                border-top: 1px solid #bbbbbb;
+                border-bottom: 1px solid #bbbbbb;
+              }
+              #eventBlockCell{
+                padding:40px;
+              }
+                .eventBlockCalendar{
+                  background-color: #ffffff;
+                  border: 1px solid #dddddd;
+                }
+                .eventBlockHeading{
+                  padding-bottom: 40px;
+                }
+                .eventBlockMonth{
+                  background-color: #d83826; /*  red  */
+                  color: #ffffff;
+                  font-size: 18px;
+                  font-weight: bold;
+                  line-height: 100%;
+                  padding:10px;
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+                }
+                .eventBlockDay{
+                  background-color: #ffffff;
+                  color: #404040;
+                  font-size: 48px;
+                  font-weight: bold;
+                  line-height: 100%;
+                  padding:15px;
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+                }
+                .eventContent{
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+                  padding-left: 20px;
+                }
+
+/* ============== merchandise =================*/
+            #merchandiseContainer{
+              background-color: #f0f0f0;
+              padding: 40px;
+            }
+              #merchandiseBlock{
+                background-color: #ffffff;
+                border: 1px solid #bbbbbb;
+                border-collapse: separate;
+                border-radius: 4px;
+
+              }
+                #merchandiseBlockCell{
+                  padding:40px;
+                }
+
+                .merchandiseBlockHeading{
+                  padding-bottom: 40px;
+                }
+                .merchandiseBlockLeftColumn{
+                  padding-right:10px;
+                }
+                .merchandiseBlockRightColumn{
+                  padding-left:10px;
+                }
+                .merchandiseImage{
+                  border: 1px solid #dddddd;
+                }
+                .merchandiseContent{
+                  color: #606060;
+                  font-size: 16px;
+                  line-height: 110%;
+                  padding-left:10px;
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+                }
+                .merchandiseButton{
+                  background-color: #D83826; /*  red  */
+                  border-radius: 4px;
+                  box-shadow: 0 5px 0 #a22a1c;
+                }
+                .merchandiseButtonContent, .merchandiseButtonContent a{
+                  color: #f0f0f0;
+                  font-size:16px;
+                  font-weight: thin;
+                  line-height: 100%;
+                  padding: 10px;
+                  text-align: center;
+                  text-decoration: none;
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+                }
+
+	/* ============== footer =================*/
+            #footerContainer{
+              padding: 40px;
+            }
+                .footerContent{
+                  color: #aaaaaa;
+                  font-size:13px;
+                  line-height: 150%;
+                  padding-bottom: 40px;
+                  font-family: 'Arima Madurai', cursive, helvetica, arial;
+                }
+                .footerContent a{
+                  color: #d83826; /*  red  */
+                  text-decoration: none;
+                }
+
+/*////// MOBILE STYLES //////*/
+
+			/*
+				CSS selectors are written in attribute
+				selector format to prevent Yahoo Mail
+				from rendering media query styles on
+				desktop.
+
+			*/
+
+			@media only screen and (max-width: 480px){
+				/*// RESET STYLES //*/
+				td[id="introContainer"], td[id="ctaContainer"], td[id="eventContainer"], td[id="merchandiseContainer"], td[id="footerContainer"]{
+          padding-right:10px !important;
+          padding-left:10px !important;
+        }
+
+				table[id="introBlock"], table[id="ctaBlock"], table[id="eventBlock"], table[id="merchandiseBlock"], table[id="footerBlock"]{
+          max-width:480px !important;
+          width:100% !important;
+        }
+
+				/*// CLIENT-SPECIFIC STYLES //*/
+				body{
+          width:100% !important;
+          min-width:100% !important;
+          } /* Force iOS Mail to render the email at full width. */
+
+				/*// GENERAL STYLES //*/
+				h1{
+          font-size:34px !important;
+        }
+				h2{
+          font-size:30px !important;
+        }
+				h3{
+          font-size:24px !important;
+        }
+
+				img[id="heroImage"]{
+          height:auto !important;
+          max-width:520px !important;
+           width:100% !important;
+        }
+
+	/* force logo and heading to stack vertically */
+				td[class="introLogo"], td[class="introHeading"]{
+          display:block !important;
+        }
+				td[class="introHeading"]{
+          padding:40px 0 0 0 !important;
+        }
+				td[class="intoContent"]{
+          padding-top:20px !important;
+        }
+  /* set cta button to full width in mobile */
+				td[class="ctaContent"]{
+          text-align:left !important;
+        }
+				table[class="ctaButton"]{
+          width:100% !important;
+        }
+
+				td[id="eventBlockCell"]{
+          padding-right:20px !important;
+          padding-left:20px !important;
+        }
+				table[class="eventBlockCalendar"]{
+          width:100px !important;
+        }
+  /* set merchandise block to stack vertically in mobile */
+				td[id="merchandiseBlockCell"]{
+          padding-right:20px !important;
+          padding-left:20px !important;
+        }
+				td[class="merchandiseBlockHeading"] h2{
+          text-align:center !important;
+        }
+				td[class="merchandiseBlockLeftColumn"], td[class="merchandiseBlockRightColumn"]{
+          display:block !important;
+          padding:0 0 20px 0 !important;
+          width:100% !important;
+        }
+
+				td[class="footerContent"]{
+          font-size:15px !important;
+        }
+				td[class="footerContent"] a{
+          display:block;
+        }
+      }
+</style>

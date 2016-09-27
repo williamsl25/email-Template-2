@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Email Template Scaffold</title>
+    <style type="text/css">
+    /* add whatever font you want */
+      @import 'https://fonts.googleapis.com/css?family=Arima+Madurai:200|Josefin+Slab';
+
+/* RESET STYLES */
+      			body, #bodyTable, #bodyCell {
+              height:100% !important;
+              margin:0;
+              padding:0;
+              width:100% !important;
+            }
+      			table{
+              border-collapse:collapse;
+            }
+      			img, a img{
+              border:0;
+              outline:none;
+              text-decoration:none;
+            }
+      			h1, h2, h3, h4, h5, h6{
+              margin:0;
+              padding:0;
+            }
+      			p{
+              margin: 1em 0;
+            }
+
+/* CLIENT-SPECIFIC STYLES */
+            .ReadMsgBody{
+              width:100%;
+              }
+            .ExternalClass{
+              width:100%;
+              }
+               /* Force Hotmail/Outlook.com to display emails at full width. */
+            .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div{
+              line-height:100%;
+              }
+              /* Force Hotmail/Outlook.com to display line heights normally. */
+            table, td{
+              mso-table-lspace:0pt;
+              mso-table-rspace:0pt;
+              }
+              /* Remove spacing between tables in Outlook 2007 and up. */
+            #outlook a{
+              padding:0;
+              }
+              /* Force Outlook 2007 and up to provide a "view in browser" message. */
+            img{
+              -ms-interpolation-mode: bicubic;
+              }
+              /* Force IE to smoothly render resized images. */
+            body, table, td, p, a, li, blockquote{
+              -ms-text-size-adjust:100%;
+              -webkit-text-size-adjust:100%;
+              }
+              /* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
+
+
+  /*  General Styles  */
+              h1, h2, h3 {
+                font-family:'Helvetica Neue', helvetica, Arial, sans-serif;
+              }
+              h1, h1 a{
+                color: #D83826; /*  red  */
+                font-size: 44px;
+                font-weight: 100;
+                line-height: 115%;
+                text-align:left;
+              }
+              h2, h2 a{
+                color: #606060;
+                font-size: 34px;
+                font-weight: 100;
+                line-height: 100%;
+                text-align:left;
+              }
+              h3, h3 a{
+                color: #D83826;  /*  red  */
+                font-size: 30px;
+                font-weight: 100;
+                line-height: 115%;
+                text-align:left;
+              }
+
+              body, #bodyTable{
+                background-color: #424145;
+              }
+
+              #emailContainer{
+                width:100%;
+              }
+              #heroContainer{
+                background-color: #f0f0f0;
+              }
+              #introContainer{
+                background-color: #f0f0f0;
+                padding: 40px;
+              }
+              #ctaContainer{
+                background-color: #d83826;  /*  red  */
+                padding: 40px;
+              }
+              #eventContainer{
+                background-color: #f0f0f0;
+                padding: 40px;
+              }
+              #merchandiseContainer{
+                background-color: #f0f0f0;
+                padding: 40px;
+              }
+              #footerContainer{
+                padding: 40px;
+              }
+
+    </style>
+
+  </head>
+  <body style="margin: 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%; background-color: #eeeeee; height: 100%; width: 100%;">
+    <!-- main table used bc body tag is stripped by some email -->
+    <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+      <tr>
+        <td align="center" valign="top" id="bodyCell">
+
+          <!-- // BEGIN EMAIL -->
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" id="emailContainer" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;width: 100%;">
+
+          <!-- 1st row -->
+            <tr>
+              <td align="center" valign="top" id="heroImageContainer" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #F0F0F0;">
+
+              </td>
+            </tr>
+
+          <!-- 2nd row -->
+            <tr>
+              <td align="center" valign="top" id="introContainer" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #F0F0F0;padding: 40px;">
+
+              </td>
+            </tr>
+
+          <!-- 3rd row -->
+            <tr>
+              <td align="center" valign="top" id="ctaContainer" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #D83826;padding: 40px;">
+
+              </td>
+            </tr>
+
+          <!-- 4th row -->
+            <tr>
+              <td align="center" valign="top" id="eventContainer" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #F0F0F0;padding: 40px;">
+
+              </td>
+            </tr>
+
+          <!-- 5th row -->
+            <tr>
+              <td align="center" valign="top" id="merchandiseContainer">
+
+              </td>
+            </tr>
+
+          <!-- 6th row -->
+            <tr>
+              <td align="center" valign="top" id="footerContainer">
+
+              </td>
+            </tr>
+
+          </table>
+          <!-- END EMAIL // -->
+
+        </td>
+      </tr>
+    </table>
+    <!-- end main table -->
+  </body>
+</html>
